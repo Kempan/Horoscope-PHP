@@ -1,1 +1,1 @@
-# Horoscope
+http://joakimedwardh.wieg17.se/horoscope/
