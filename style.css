@@ -1,0 +1,81 @@
+
+body{
+    background-image: url("pics/norrsken.jpg");
+    background-size: cover;
+    color:white;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+#h1top{
+    font-size: 80px;
+}
+
+h1{
+    font-family: 'Indie Flower', cursive;
+    margin:0;
+    font-size: 50px;
+}
+
+p{
+    margin:0;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+}
+
+input:focus{
+    outline:none;
+}
+
+button:focus{
+    outline:none;
+}
+
+.inputDiv{
+    display: flex;
+    justify-content: center;
+    margin-bottom:20px;
+}
+
+.knappDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.knapp{
+    height:70px;
+    width:120px;
+    border-radius: 20px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color:white;
+}
+
+.resultatDiv{
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    text-align: center;
+}
+
+.pics{
+    border-radius: 80px;
+    height:200px;
+    width:300px;
+}
+
+#angivetNummer{
+    border-radius: 5px;
+    height:30px;
+    width:230px;
+    font-size: 18px;
+    font-family: 'Indie Flower', cursive;
+}
