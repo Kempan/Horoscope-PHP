@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <title>Horoscope</title>
+
+    <style>
+        body{
+            background-image: url("pics/norrsken.jpg");
+            background-size: cover;
+            color:white;
+        }
+
+        header{
+            display: flex;
+            justify-content: center;
+        }
+
+        #h1top{
+            font-size: 80px;
+        }
+
+        h1{
+            font-family: 'Indie Flower', cursive;
+            margin:0;
+            font-size: 50px;
+        }
+
+        p{
+            margin:0;
+            font-family: 'Indie Flower', cursive;
+            font-size: 25px;
+        }
+
+        input:focus{
+            outline:none;
+        }
+
+        button:focus{
+            outline:none;
+        }
+
+        .inputDiv{
+            display: flex;
+            justify-content: center;
+            margin-bottom:20px;
+        }
+
+        .knappDiv{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .knapp{
+            height:70px;
+            width:120px;
+            border-radius: 20px;
+            font-family: 'Indie Flower', cursive;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: black;
+            color:white;
+        }
+
+        .resultatDiv{
+            margin-top:20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content{
+            text-align: center;
+        }
+
+        .pics{
+            border-radius: 80px;
+            height:200px;
+            width:300px;
+        }
+
+        #angivetNummer{
+            border-radius: 5px;
+            height:30px;
+            width:230px;
+            font-size: 18px;
+            font-family: 'Indie Flower', cursive;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function(){
+            
+            //Skriver ut horoskopet om det finns sparat i SESSION
+            viewHoroscope = function(){
+                $.ajax({
+                    url:"viewHoroscope.php",
+                    method: "GET",
+                    success: function(results){
+                        $(".content").html(results);
+                    }
+                });
+            }
+
+            viewHoroscope();
+
+            //Visar sparat horoskop
+            $("#visaHoroskop").click(function(){
+                viewHoroscope();
+            });
+            
+            //Sparar horoskopet i SESSION och skriver ut om SESSION är tomt
+            //Om det redan finns ett horoskop sparat i SESSION säger den ifrån
+            $("#sparaHoroscope").click(function(){
+                        
+                $.ajax({
+                    url:"addHoroscope.php",
+                    method: "POST",
+                    data:{
+                        "personNr": $("#angivetNummer").val()
+                    },
+                    success: function(results){
+                        if(results == "true"){
+                            viewHoroscope();
+                        }
+                        
+                        else { 
+                            $(".content").html(results);
+                        }
+                    }
+                });
+            });
+            
+            //Uppdaterar SESSION med det nya horoskopet och skriver ut
+            //Ber dig sparat ett horoskop om SESSION är tomt
+            $("#uppdateraHoroscope").click(function(){
+                        
+                $.ajax({
+                    url:"updateHoroscope.php",
+                    method: "PUT",
+                    data:{
+                        "personNr": $("#angivetNummer").val()
+                    },
+                    success: function(results){
+                        if(results == "true"){
+                            viewHoroscope();
+                        } else {
+                            $(".content").html(results);
+                        }
+                    }
+                }); 
+            });
+            
+            //Tömmer SESSION 
+            //Säger ifrån om det inte finns något sparat
+            $("#raderaHoroscope").click(function(){
+                        
+                $.ajax({
+                    url:"deleteHoroscope.php",
+                    method: "DELETE",
+                    data:{
+                        "personNr": $("#angivetNummer").val()
+                    },
+                    success: function(results){
+                        $(".content").html(results);
+                    }
+                });   
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1 id="h1top">Välkommen till horoscope!</h1>
+    </header>
+    
+    <div class="inputDiv">
+        <input placeholder="Ange Personnummer(6 siffror)" type="text" maxlength="6" id="angivetNummer">
+    </div>
+
+    <div class="knappDiv">
+        <button class="knapp" id="sparaHoroscope">Spara horoskop
+        <button class="knapp" id="uppdateraHoroscope">Uppdatera horoskop
+        <button class="knapp" id="visaHoroskop">Visa sparat horoskop
+        <button class="knapp" id="raderaHoroscope">Radera horoskop
+    </div>
+
+    <div class="resultatDiv">
+        <div class="content">
+            
+        </div>
+    </div>
+</body>
+</html>
