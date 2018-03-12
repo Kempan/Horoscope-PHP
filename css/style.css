@@ -1,8 +1,8 @@
 
 body{
-    background-image: url("./pics/norrsken.jpg");
+    background-image: url("pics/norrsken.jpg");
     background-size: cover;
-    color:white;
+    color:black;
 }
 
 header{
