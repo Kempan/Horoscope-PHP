@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     include 'calculateHoroscope.php';
@@ -17,16 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 else{
-    echo "<p>Error</p>";
+    echo "<p>Not requested by POST</p>";
 }
-
-
-
-
-
-
-
-
-
 
 ?>

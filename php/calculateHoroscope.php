@@ -2,7 +2,6 @@
 
 class Person{
     private $horoscope;
-    
 
     function __construct($date){
         
@@ -70,6 +69,5 @@ class Person{
 
 $date = substr($_POST["personNr"], -4, 4);
 $horoscope = new Person($date);
-
 
 ?>

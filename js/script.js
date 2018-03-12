@@ -4,7 +4,7 @@ $(document).ready(function(){
     //Skriver ut horoskopet om det finns sparat i SESSION
     viewHoroscope = function(){
         $.ajax({
-            url:"viewHoroscope.php",
+            url:"php/viewHoroscope.php",
             method: "GET",
             success: function(results){
                 $(".content").html(results);
@@ -24,7 +24,7 @@ $(document).ready(function(){
     $("#sparaHoroscope").click(function(){
                 
         $.ajax({
-            url:"addHoroscope.php",
+            url:"php/addHoroscope.php",
             method: "POST",
             data:{
                 "personNr": $("#angivetNummer").val()
@@ -46,7 +46,7 @@ $(document).ready(function(){
     $("#uppdateraHoroscope").click(function(){
                 
         $.ajax({
-            url:"updateHoroscope.php",
+            url:"php/updateHoroscope.php",
             method: "PUT",
             data:{
                 "personNr": $("#angivetNummer").val()
@@ -66,7 +66,7 @@ $(document).ready(function(){
     $("#raderaHoroscope").click(function(){
                 
         $.ajax({
-            url:"deleteHoroscope.php",
+            url:"php/deleteHoroscope.php",
             method: "DELETE",
             data:{
                 "personNr": $("#angivetNummer").val()

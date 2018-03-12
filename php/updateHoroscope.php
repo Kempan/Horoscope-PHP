@@ -18,11 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "PUT"){
     }  
 } 
 else {
-    echo "<p>Error</p>";
+    echo "<p>Not requested by PUT</p>";
 }
-
-
-
-
 
 ?>
