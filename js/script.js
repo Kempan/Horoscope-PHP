@@ -33,7 +33,6 @@ $(document).ready(function(){
                 if(results == "true"){
                     viewHoroscope();
                 }
-                
                 else { 
                     $(".content").html(results);
                 }
