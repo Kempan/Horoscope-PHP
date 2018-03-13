@@ -2,6 +2,7 @@
 
 parse_str(file_get_contents("php://input"), $_PUT);
 session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "PUT"){
 
     if($_SESSION["horoscope"] == null){

@@ -1,8 +1,8 @@
 
 body{
-    background-image: url("pics/norrsken.jpg");
+    background-image: url("../pics/norrsken.jpg");
     background-size: cover;
-    color:black;
+    color:white;
 }
 
 header{
@@ -12,6 +12,7 @@ header{
 
 #h1top{
     font-size: 80px;
+    color:yellow;
 }
 
 h1{
@@ -53,7 +54,7 @@ button:focus{
     font-size: 20px;
     font-weight: bold;
     background-color: black;
-    color:white;
+    color:yellow;
 }
 
 .resultatDiv{

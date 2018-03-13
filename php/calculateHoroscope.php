@@ -7,7 +7,11 @@ class Person{
         
         $this->date = $date;
 
-        if($date <= '1222' && $date <= '0120'){  
+        if(strlen($date) < 4){
+            $this->horoscope = "<p>Felaktigt personnummer!</p>";
+        }
+
+        elseif($date <= '1222' && $date <= '0120'){  
             $this->horoscope = "<h1>Stenbock: 22 december - 19 januari</h1><img src='pics/stenbock.jpg' class='pics'><p>Element: Jord<br>Tillbakadragen, blyg, trogen, pliktkänsla, ambitiös, lojal</p>";
         }
 
@@ -56,7 +60,7 @@ class Person{
         }
 
         else {
-            $this->horoscope = "<p>Felaktigt personnummer</p>";
+            $this->horoscope = "<p>Felaktigt personnummer!</p>";
         }
 
     }
