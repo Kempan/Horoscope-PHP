@@ -1,5 +1,7 @@
 <?php
 
+$date = substr($_POST["personNr"], -4, 4);
+
 class Person{
     private $horoscope;
 
@@ -7,7 +9,7 @@ class Person{
         
         $this->date = $date;
 
-        if(strlen($date) < 4){
+        if(strlen($date) < 4 || substr($date,0,2) == "00"){
             $this->horoscope = "<p>Felaktigt personnummer!</p>";
         }
 
@@ -71,7 +73,6 @@ class Person{
     
 }
 
-$date = substr($_POST["personNr"], -4, 4);
 $horoscope = new Person($date);
 
 ?>
