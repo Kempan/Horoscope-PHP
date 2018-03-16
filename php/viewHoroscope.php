@@ -5,11 +5,12 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 
     if($_SESSION == null){
         echo "<p>Det finns inget horoskop sparat, skriv in ditt personnummer!</p>";
-    } else {
+    }
+    else {
         echo ($_SESSION["horoscope"]);
     }
-
-} else {
+}
+else {
     echo "<p>Not requested by GET</p>";
 }
 

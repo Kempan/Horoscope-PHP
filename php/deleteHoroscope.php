@@ -5,12 +5,14 @@ if($_SERVER["REQUEST_METHOD"] == "DELETE"){
     
     if($_SESSION["horoscope"] == null){
         echo "<p>Det finns inget horoskop sparat!</p>";
-    } else{
+    }
+    else{
         echo "<p>Horoskop raderat!</p>";
         session_destroy();
     }
     
-} else {
+}
+else {
     echo "<p>Not requested by DELETE</p>";
 }
 

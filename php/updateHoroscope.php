@@ -15,10 +15,12 @@ if($_SERVER["REQUEST_METHOD"] == "PUT"){
         $_POST["personNr"] = $_PUT["personNr"];
         include 'calculateHoroscope.php';
         $falseCheck = $horoscope->printSign();
+
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
             echo "true";
-        } else {
+        }
+        else {
             echo $falseCheck;
             session_destroy();
         }
