@@ -18,7 +18,8 @@ if($_SERVER["REQUEST_METHOD"] == "PUT"){
 
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
-            echo "true";
+            $true = true;
+            echo $true;
         }
         else {
             echo $falseCheck;

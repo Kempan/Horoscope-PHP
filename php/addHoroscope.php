@@ -5,7 +5,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     include 'calculateHoroscope.php';
-    $falseCheck = $horoscope->printSign();
+    $wrongNumberMessage = $horoscope->printSign();
 
     if($_POST["personNr"] == null && $_SESSION["horoscope"] == null){
         echo "<p>Var vänlig skriv in ett personnummer!</p>";
@@ -14,10 +14,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
-            echo "true";
+            $true = true;
+            echo $true;
         }
         else {
-            echo $falseCheck;
+            echo $wrongNumberMessage;
         }
     }
     else if($_SESSION["horoscope"] != null){

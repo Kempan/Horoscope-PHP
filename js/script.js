@@ -30,7 +30,7 @@ $(document).ready(function(){
                 "personNr": $("#angivetNummer").val()
             },
             success: function(results){
-                if(results == "true"){
+                if(results == true){
                     viewHoroscope();
                 }
                 else { 
@@ -51,7 +51,7 @@ $(document).ready(function(){
                 "personNr": $("#angivetNummer").val()
             },
             success: function(results){
-                if(results == "true"){
+                if(results == true){
                     viewHoroscope();
                 } else {
                     $(".content").html(results);
